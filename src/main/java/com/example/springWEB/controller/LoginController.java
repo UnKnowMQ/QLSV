@@ -29,16 +29,16 @@ public class LoginController {
 
 	@Autowired
 	private TeacherService teacherService;
-	
+
 	@Autowired
 	private AdminService adminService;
-	
+
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	private StudentService studentService;
-    @GetMapping("/login")
+    @GetMapping("/userlogin")
     public String loginPage(Model model, String error, String logout) {
         if (error != null) {
             model.addAttribute("errorMessage", "Sai tên đăng nhập hoặc mật khẩu!");
@@ -46,7 +46,7 @@ public class LoginController {
         if (logout != null) {
             model.addAttribute("logoutMessage", "Đăng xuất thành công!");
         }
-        return "Student/login";
+        return "Student/userlogin";
     }
     @PostMapping("/checklogin")
     public String checkLogin(@RequestParam("username") String username , @RequestParam("password") String password, HttpSession session,Model model) {
@@ -54,11 +54,11 @@ public class LoginController {
     		if(userService.checkUserId1(username, password)) {
     			session.setAttribute("username", username);
     			Optional<Students> studentop = studentService.getStudentById(username);
-    	    	Students student = studentop.get(); 
-    	        model.addAttribute("student", student); 
-    			return "Student/home";
+    	    	Students student = studentop.get();
+    	        model.addAttribute("student", student);
+    			return "Student/index";
     		}else {
-    			return "Student/login";
+    			return "Student/userlogin";
     		}
     	}
     	if(username.startsWith("GV")) {
@@ -69,7 +69,7 @@ public class LoginController {
 				model.addAttribute("teacher",teacher);
 				return "Teacher/teacher-home";
 			}else {
-    			return "Student/login";
+    			return "Student/userlogin";
 			}
     	}
     	if(username.startsWith("QT")) {
@@ -80,10 +80,10 @@ public class LoginController {
 				model.addAttribute("admin",admin);
 				return "Admin/home";
 			}else {
-				return "Student/login";
+				return "Student/userlogin";
 			}
     	}
-		return "Student/login";
+		return "Student/userlogin";
     }
 //    @GetMapping("/processUserId")
 //    public String processUserId(Model model ) {
@@ -96,11 +96,11 @@ public class LoginController {
 //    @GetMapping("/redirect-after-login")
 //    public String redirectAfterLogin() {
 //        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//        
+//
 //        String userId = auth.getName();
-//        
+//
 //        String role = auth.getAuthorities().stream().findFirst().get().getAuthority();
-        
+
 //        httpSession.setAttribute("userId", userId);
 
 //        if (role.equals("ROLE_QT")) {
@@ -113,7 +113,7 @@ public class LoginController {
 //            return "redirect:/login?error=true";
 //        }
 //    }
-    
+
     @GetMapping("/logout")
     public String logout(HttpServletRequest request,HttpSession session) throws ServletException {
     	String username = (String ) session.getAttribute("username");

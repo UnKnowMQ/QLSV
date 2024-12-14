@@ -38,61 +38,61 @@ public class StudentsController {
 	@Autowired
 	private CoursesService coursesService;
 	
-	
-	@PostMapping("/home")
+
+	@PostMapping("/index")
 	public String studentToHome(Model model, HttpSession session) {
 		String studentID = (String) session.getAttribute("username");
 		if(studentID==null) {
-			return "Student/login";
+			return "Student/userlogin";
 		}
 		Optional<Students> studentop = studentService.getStudentById(studentID);
     	Students student = studentop.get();
         model.addAttribute("student", student);
-		return "Student/home";
+		return "Student/index";
 	}
-	@GetMapping("/home") 
+	@GetMapping("/index")
 	public String studentHome(Model model,HttpSession session) {
 		String studentID = (String) session.getAttribute("username");
 		if(studentID==null) {
-			return "Student/login";
+			return "Student/userlogin";
 		}
 		Optional<Students> studentop = studentService.getStudentById(studentID);
     	Students student = studentop.get();
         model.addAttribute("student", student);
-		return "Student/home";
+		return "Student/index";
 	}
 	
 	@GetMapping("/infor")	
 	public String getStudentInfo(Model model, HttpSession session) {
 		String studentID = (String) session.getAttribute("username");
 		if(studentID==null) {
-			return "Student/login";
+			return "Student/userlogin";
 		}
         Optional<Students> studentop = studentService.getStudentById(studentID);
         	Students student = studentop.get();
             model.addAttribute("student", student);
-        return "Student/student-infor";
+        return "Student/info-student";
     }
 
-	@GetMapping("/course")
+	@GetMapping("/info-course")
 	public String studentCourse(Model model, HttpSession session) {
 		String studentID = (String) session.getAttribute("username");
 		if(studentID==null) {
-			return "Student/login";
+			return "Student/userlogin";
 		}
 		Optional<Students> studentop = studentService.getStudentById(studentID);
 		List<Courses> courses = coursesService.getAllCourses(studentID);
     	Students student = studentop.get();
         model.addAttribute("student", student);
         model.addAttribute("courses", courses);    	
-		return "Student/student-course";
+		return "Student/info-course";
 	}
 	
-	@GetMapping("/timetable")
+	@GetMapping("/schedule")
 	public String studentTimeTable(Model model , HttpSession session) {
 		String studentID = (String) session.getAttribute("username");
 		if(studentID==null) {
-			return "Student/login";
+			return "Student/userlogin";
 		}
 		Optional<Students> studentop = studentService.getStudentById(studentID);
     	Students student = studentop.get();
@@ -100,35 +100,35 @@ public class StudentsController {
         
 		List<Courses> courses = coursesService.getAllCourses(studentID);
         model.addAttribute("courses", courses);    	
-		return "Student/timetable";
+		return "Student/schedule";
 	}
 	
-	@GetMapping("/feedback")
+	@GetMapping("/userfeedback")
 	public String studentFeedBack(Model model , HttpSession session) {
 		String studentID = (String) session.getAttribute("username");
 		if(studentID==null) {
-			return "Student/login";
+			return "Student/userlogin";
 		}
 		Optional<Students> studentop = studentService.getStudentById(studentID);
     	Students student = studentop.get();
         model.addAttribute("student", student);
-		return "Student/feedback";
+		return "Student/userfeedback";
 	}
 	
-	@PostMapping("/feedback")
+	@PostMapping("/userfeedback")
 	public String saveFeedBack(@RequestParam("content") String content,Model model) {
 		FeedBack feedBack = new FeedBack(content,"Chưa duyệt");
 		feedBackService.save(feedBack);
 		model.addAttribute("feedback",feedBack);
-		return "redirect:/student/feedback";
+		return "redirect:/student/userfeedback";
 	}
 	
 	
-	@GetMapping("/course-scores")
+	@GetMapping("/scores")
 	public String studentScore(@RequestParam("courseId") String courseId, Model model , HttpSession session) {
-		String studentID = (String) session.getAttribute("studentID");
+		String studentID = (String) session.getAttribute("username");
 		if(studentID==null) {
-			return "Student/login";
+			return "Student/userlogin";
 		}
 		Optional<Students> studentop = studentService.getStudentById(studentID);
     	Students student = studentop.get();
@@ -138,24 +138,24 @@ public class StudentsController {
 		Courses courses = coursesService.getCourseByID(courseId);
 		model.addAttribute("courses",courses);
 		model.addAttribute("scores",scores);
-		return "Student/student-score";
+		return "Student/scores";
 	}
 	@GetMapping("/infor/change")
 	public String studentChangeInfor(Model model , HttpSession session) {
-		String studentID = (String) session.getAttribute("studentID");
+		String studentID = (String) session.getAttribute("username");
 		if(studentID==null) {
-			return "Student/login";
+			return "Student/userlogin";
 		}
 		Optional<Students> studentop = studentService.getStudentById(studentID);
     	Students student = studentop.get();
         model.addAttribute("student", student);
-		return "Student/student-changeinfor";
+		return "Student/infochange";
 	}
 	@PostMapping("/infor/change")
 	public String StudentChange(@ModelAttribute("student") Students student, Model model , HttpSession session) {
-		String studentID = (String) session.getAttribute("studentID");
+		String studentID = (String) session.getAttribute("username");
 		if(studentID==null) {
-			return "Student/login";
+			return "Student/userlogin";
 		}
 		Optional<Students> studentop = studentService.getStudentById(studentID);
     	Students student1 = studentop.get();
@@ -166,4 +166,6 @@ public class StudentsController {
 		model.addAttribute("student",student);
 		return "redirect:/student/infor";
 	}
+	//new content
+
 }
