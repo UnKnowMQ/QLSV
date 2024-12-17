@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Feedback</title>
+    <title>Teacher informations</title>
 
     <!-- Custom fonts for this template-->
     <link href="/css/all.min.css" rel="stylesheet" >
@@ -47,7 +47,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="/student/index">
+            <a class="nav-link" href="/teacher/home">
                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-house-door-fill pb-1" viewBox="0 0 16 16">
                     <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
                 </svg>
@@ -64,25 +64,25 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="/student/infor" >
+            <a class="nav-link collapsed" href="/teacher/infor" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-person-fill pb-1" viewBox="0 0 16 16">
                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
                 </svg>
-                <span>Thông tin sinh viên</span>
+                <span>Thông tin giảng viên</span>
             </a>
-            <a class="nav-link collapsed" href="/student/schedule" >
+            <a class="nav-link collapsed" href="/teacher/schedule" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-table pb-1" viewBox="0 0 16 16">
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 2h-4v3h4zm0 4h-4v3h4zm0 4h-4v3h3a1 1 0 0 0 1-1zm-5 3v-3H6v3zm-5 0v-3H1v2a1 1 0 0 0 1 1zm-4-4h4V8H1zm0-4h4V4H1zm5-3v3h4V4zm4 4H6v3h4z"/>
                 </svg>
                 <span>Thời khoá biều</span>
             </a>
-            <a class="nav-link collapsed" href="/student/info-course" >
+            <a class="nav-link collapsed" href="/teacher/info-course" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-book-half pb-1" viewBox="0 0 16 16">
                     <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
                 </svg>
                 <span>Thông tin khoá học</span>
             </a>
-            <a class="nav-link collapsed" href="/student/userfeedback" >
+            <a class="nav-link collapsed" href="/teacher/userfeedback" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-exclamation-triangle-fill pb-1" viewBox="0 0 16 16">
                     <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
                 </svg>
@@ -263,7 +263,7 @@
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">${student.name}</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">${teacher.name}</span>
                             <img class="img-profile rounded-circle"
                                  src="/images/undraw_profile.svg">
                         </a>
@@ -293,23 +293,66 @@
                 </ul>
 
             </nav>
-            <h4 class="text-center">Phản hồi </h4>
-            <h5 class="text-center font-weight-bold mb-4 text-black">Phản hồi của bạn về hệ thống: </h5>
-            <form action="${pageContext.request.contextPath}/student/userfeedback" method="post" class="ml-5">
-
-                <div class="mb-3">
-                    <textarea class="form-control" id="feedback" name="content" rows="5" placeholder="Enter your feedback here..." th:value="${feedBack.content}"></textarea>
-                </div>
-                <div class="d-grid">
-
-                    <button type="submit" class="btn btn-primary col-2" >Gửi phản hồi</button>
-                </div>
-            </form>
             <!-- End of Topbar -->
             <!-- Begin Page Content -->
+            <div class="row bg-white ">
+                <div class="col">
+                    <div class="row mb-2">
+                        <img class="col-2 ml-2 mb-2 " src="/images/undraw_profile.svg" alt="" width="90px" height="120px">
+                        <div class="col-8 mt-5">
+                            <p class="font-weight-bold">Họ và tên: <br> ${teacher.name} </p>
+                            <p class=""></p>
+                        </div>
 
+                    </div>
+
+                    <div class="row ">
+                        <p class="col ml-4 font-weight-bold">Mã giảng viên: <br>${teacher.teacherId} </p>
+                        <p class="col font-weight-bold" >Khoa: ${teacher.department.departmentId}</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <table class="table mt-4">
+                <thead>
+                <tr>
+                    <th>Thông tin cá nhân</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                        <tr class="font-weight-bold text-black">
+                            <td>Giới tính</td>
+                            <td>${teacher.gender}</td>
+                        </tr>
+                        <tr class="font-weight-bold text-black">
+                            <td>Ngày sinh: </td>
+                            <td>${teacher.birthday}</td>
+                        </tr>
+                        <tr class="font-weight-bold text-black">
+                            <td>Quê quán</td>
+                            <td>${teacher.hometown}</td>
+                        </tr>
+                        <tr class="font-weight-bold text-black">
+                            <td>Số điện thoại</td>
+                            <td>${teacher.phoneNumber}</td>
+                        </tr>
+                        <tr class="font-weight-bold text-black">
+                            <td>Email</td>
+                            <td>${teacher.email}</td>
+                        </tr>
+
+
+                </tbody>
+
+            </table>
             <!-- /.container-fluid -->
-
+            <a href="/teacher/infor/change" class="btn btn-danger col-2" >
+                <i class="change-infor-icon fa-regular fa-pen-to-square"></i>
+                Sửa thông tin
+            </a>
         </div>
         <!-- End of Main Content -->
 

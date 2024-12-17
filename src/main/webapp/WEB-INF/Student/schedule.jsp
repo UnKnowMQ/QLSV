@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Student informations</title>
+    <title>Schedule</title>
 
     <!-- Custom fonts for this template-->
     <link href="/css/all.min.css" rel="stylesheet" >

@@ -67,7 +67,7 @@ public class LoginController {
 				Optional<Teacher> teacherop = teacherService.getTeacherById(username);
 				Teacher teacher = teacherop.get();
 				model.addAttribute("teacher",teacher);
-				return "Teacher/teacher-home";
+				return "Teacher/index";
 			}else {
     			return "Student/userlogin";
 			}
@@ -78,7 +78,7 @@ public class LoginController {
 				Optional<Admin> adminop = adminService.getAdminById(username);
 				Admin admin = adminop.get();
 				model.addAttribute("admin",admin);
-				return "Admin/home";
+				return "Admin/index";
 			}else {
 				return "Student/userlogin";
 			}

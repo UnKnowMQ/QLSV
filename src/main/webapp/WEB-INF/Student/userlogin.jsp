@@ -39,7 +39,7 @@
 </head>
 <body >
 <div class="login-container">
-    <h3 class="text-center mb-4">Sinh viên đăng nhập</h3>
+    <h3 class="text-center mb-4">Đăng nhập</h3>
     <form action="/checklogin" method="post">
         <div>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />

@@ -58,19 +58,19 @@ public class AdminController {
 //        String adminId1 = auth.getName();
 		String adminId = (String) session.getAttribute("username");
 		if(adminId==null) {
-			return "Student/login";
+			return "Student/userlogin";
 		}
 		Optional<Admin> adminop = adminService.getAdminById(adminId);
 		Admin admin = adminop.get();
 		model.addAttribute("admin",admin);
 		
-		return "Admin/home";
+		return "Admin/index";
 	}
 	@GetMapping("/student-manager")
 	public String admin_student_manager(Model model, HttpSession session,@RequestParam(value = "classes", defaultValue = "all" , required = false) String classId) {
 		String adminId = (String) session.getAttribute("username");
 		if(adminId==null) {
-			return "Student/login";
+			return "Student/userlogin";
 		}
 		List<String> lop = studentService.getAllClass();
 		Optional<Admin> adminop = adminService.getAdminById(adminId);
@@ -84,13 +84,13 @@ public class AdminController {
 		model.addAttribute("students",students);
 		model.addAttribute("lop",lop);
 		model.addAttribute("admin",admin);
-		return "Admin/student-list";
+		return "Admin/student_management";
 	}
 	@GetMapping("/teacher-manager")
 	public String admin_teacher_manager(Model model,HttpSession session,@RequestParam(value = "departments", defaultValue = "all" , required = false) String departmentId) {
 		String adminId = (String) session.getAttribute("username");
 		if(adminId==null) {
-			return "Student/login";
+			return "Student/userlogin";
 		}
 		List<String> deparment = teacherService.getDepartmentId();
 		Optional<Admin> adminop = adminService.getAdminById(adminId);
@@ -104,13 +104,13 @@ public class AdminController {
 		model.addAttribute("departmentIds",deparment);
 		model.addAttribute("teachers",teachers);
 		model.addAttribute("admin",admin);
-		return "Admin/teacher-list";
+		return "Admin/teacher_management";
 	}
 	@GetMapping("/course-manager")
 	public String admin_course_manager(Model model,HttpSession session) {
 		String adminId = (String) session.getAttribute("username");
 		if(adminId==null) {
-			return "Student/login";
+			return "Student/userlogin";
 		}
 		Optional<Admin> adminop = adminService.getAdminById(adminId);
 		Admin admin = adminop.get();
@@ -118,13 +118,13 @@ public class AdminController {
 		
 		model.addAttribute("courses",courses);
 		model.addAttribute("admin",admin);
-		return "Admin/course-list";
+		return "Admin/course_management";
 	}
 	@GetMapping("/feedback-manager")
 	public String admin_feedback_manager(Model model,HttpSession session) {
 		String adminId = (String) session.getAttribute("username");
 		if(adminId==null) {
-			return "Student/login";
+			return "Student/userlogin";
 		}
 		Optional<Admin> adminop = adminService.getAdminById(adminId);
 		Admin admin = adminop.get();
@@ -132,7 +132,7 @@ public class AdminController {
 		
 		model.addAttribute("feedbacks",feedbacks);
 		model.addAttribute("admin",admin);
-		return "Admin/feedback-list";
+		return "Admin/feedback_management";
 		
 	}
 	
@@ -165,7 +165,7 @@ public class AdminController {
 		Optional<Admin> adminop = adminService.getAdminById(adminId);
 		Admin admin = adminop.get();
 		model.addAttribute("admin",admin);
-		return "Admin/add-course";
+		return "Admin/add-new-course";
 	}
 	@PostMapping("/course-manager/add-course")
 	public String admin_add_courses(@ModelAttribute("course") Courses course , Model model) {
@@ -179,12 +179,12 @@ public class AdminController {
 	public String admin_add_student(Model model ,HttpSession session) {
 		String adminId = (String) session.getAttribute("username");
 		if(adminId==null) {
-			return "Student/login";
+			return "Student/userlogin";
 		}
 		Optional<Admin> adminop = adminService.getAdminById(adminId);
 		Admin admin = adminop.get();
 		model.addAttribute("admin",admin);
-		return "Admin/add-student";
+		return "Admin/add-new-student";
 	}
 	@PostMapping("/student-manager/add-student")
 	public String admin_add_students(@ModelAttribute("student") Students student , Model model,@RequestParam("classId") String classId , @RequestParam("departmentId") String departmentId) {
@@ -203,12 +203,12 @@ public class AdminController {
 	public String admin_add_teacher(Model model,HttpSession session) {
 		String adminId = (String) session.getAttribute("username");
 		if(adminId==null) {
-			return "Student/login";
+			return "Student/userlogin";
 		}
 		Optional<Admin> adminop = adminService.getAdminById(adminId);
 		Admin admin = adminop.get();
 		model.addAttribute("admin",admin);
-		return "Admin/add-teacher";
+		return "Admin/add-new-teacher";
 	}
 	@PostMapping("/teacher-manager/add-teacher")
 	public String admin_add_teachers(@ModelAttribute("teacher") Teacher teacher , Model model,@RequestParam("departmentId") String departmentId) {
@@ -225,7 +225,7 @@ public class AdminController {
 	}
 	@GetMapping("/course-manager/edit-course")
 	public String admin_edit_course(Model model) {
-		return "/Admin/edit-course";
+		return "/Admin/edit-info-course";
 	}
 	
 	@PostMapping("/course-manager/edit-course")
@@ -240,7 +240,7 @@ public class AdminController {
 		
 		model.addAttribute("student",student);
 		model.addAttribute("studentId1",studentId);
-		return "/Admin/edit-student";
+		return "/Admin/edit-info-student";
 	}
 	
 	@PostMapping("/student-manager/edit-student")
@@ -264,7 +264,7 @@ public class AdminController {
 		Teacher teacher = teacherop.get();
 		model.addAttribute("teacher",teacher);
 		model.addAttribute("teacherId1",teacherId);
-		return "/Admin/edit-teacher";
+		return "/Admin/edit-info-teacher";
 	}
 	
 	@PostMapping("/teacher-manager/edit-teacher")

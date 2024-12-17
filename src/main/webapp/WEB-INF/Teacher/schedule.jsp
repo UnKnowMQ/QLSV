@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,11 +11,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Feedback</title>
+    <title>Schedule</title>
 
     <!-- Custom fonts for this template-->
     <link href="/css/all.min.css" rel="stylesheet" >
-    <link href="/css/bootstrap.css" rel="stylesheet" >
     <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
@@ -47,7 +45,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="/student/index">
+            <a class="nav-link" href="/teacher/home">
                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-house-door-fill pb-1" viewBox="0 0 16 16">
                     <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
                 </svg>
@@ -64,25 +62,25 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="/student/infor" >
+            <a class="nav-link collapsed" href="/teacher/infor" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-person-fill pb-1" viewBox="0 0 16 16">
                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
                 </svg>
-                <span>Thông tin sinh viên</span>
+                <span>Thông tin giảng viên</span>
             </a>
-            <a class="nav-link collapsed" href="/student/schedule" >
+            <a class="nav-link collapsed" href="/teacher/schedule" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-table pb-1" viewBox="0 0 16 16">
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 2h-4v3h4zm0 4h-4v3h4zm0 4h-4v3h3a1 1 0 0 0 1-1zm-5 3v-3H6v3zm-5 0v-3H1v2a1 1 0 0 0 1 1zm-4-4h4V8H1zm0-4h4V4H1zm5-3v3h4V4zm4 4H6v3h4z"/>
                 </svg>
                 <span>Thời khoá biều</span>
             </a>
-            <a class="nav-link collapsed" href="/student/info-course" >
+            <a class="nav-link collapsed" href="/teacher/info-course" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-book-half pb-1" viewBox="0 0 16 16">
                     <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
                 </svg>
                 <span>Thông tin khoá học</span>
             </a>
-            <a class="nav-link collapsed" href="/student/userfeedback" >
+            <a class="nav-link collapsed" href="/teacher/userfeedback" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-exclamation-triangle-fill pb-1" viewBox="0 0 16 16">
                     <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
                 </svg>
@@ -263,7 +261,7 @@
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">${student.name}</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">${teacher.name}</span>
                             <img class="img-profile rounded-circle"
                                  src="/images/undraw_profile.svg">
                         </a>
@@ -293,74 +291,106 @@
                 </ul>
 
             </nav>
-            <h4 class="text-center">Phản hồi </h4>
-            <h5 class="text-center font-weight-bold mb-4 text-black">Phản hồi của bạn về hệ thống: </h5>
-            <form action="${pageContext.request.contextPath}/student/userfeedback" method="post" class="ml-5">
+<div class="container mt-1">
+    <h3 class="text-center text-black">Thời khoá biểu</h3>
 
-                <div class="mb-3">
-                    <textarea class="form-control" id="feedback" name="content" rows="5" placeholder="Enter your feedback here..." th:value="${feedBack.content}"></textarea>
-                </div>
-                <div class="d-grid">
+    <div class="table-responsive">
+        <table class="table table-bordered text-black">
+            <thead>
+            <tr class="text-black">
+                <th class="timetable-header text-black">Monday</th>
+                <th class="timetable-header text-black">Tuesday</th>
+                <th class="timetable-header text-black">Wednesday</th>
+                <th class="timetable-header text-black">Thursday</th>
+                <th class="timetable-header text-black">Friday</th>
+                <th class="timetable-header text-black">Saturday</th>
+                <th class="timetable-header text-black">Sunday</th>
 
-                    <button type="submit" class="btn btn-primary col-2" >Gửi phản hồi</button>
-                </div>
-            </form>
-            <!-- End of Topbar -->
-            <!-- Begin Page Content -->
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Slot 1 -->
+            <tr class="font-weight-bold">
 
-            <!-- /.container-fluid -->
+                <td>
 
-        </div>
-        <!-- End of Main Content -->
+                        <c:forEach var="s" items="${courses}">
+                        <c:if test="${s.date== 'Thứ 2'}">
+                        <p class="mb-0 text-primary">${s.courseName}</p>
+                        <p class="mb-0 ">${s.courseId}</p>
+                        <p class="mb-0 text-danger">${s.time}</p>
+                        <p class="mb-3 text-warning border-bottom-primary ">${s.room}</p>
+                        </c:if>
+                        </c:forEach>
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Java nâng cao - 2024</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
+                </td>
+                <td class="timetable-slot">  <c:forEach var="s" items="${courses}">
+                    <c:if test="${s.date== 'Thứ 3'}">
+                        <p class="mb-0 text-primary">${s.courseName}</p>
+                        <p class="mb-0 course-id">${s.courseId}</p>
+                        <p class="mb-0 course-time text-danger">${s.time}</p>
+                        <p class="mb-3 course-place text-warning border-bottom-primary">${s.room}</p>
+                    </c:if>
+                </c:forEach></td>
+                <td class="timetable-slot">  <c:forEach var="s" items="${courses}">
+                    <c:if test="${s.date== 'Thứ 4'}">
+                        <p class="mb-0 course-name text-primary">${s.courseName}</p>
+                        <p class="mb-0 course-id">${s.courseId}</p>
+                        <p class="mb-0 course-time text-danger">${s.time}</p>
+                        <p class="mb-3 course-place text-warning border-bottom-primary">${s.room}</p>
+                    </c:if>
+                </c:forEach></td>
+                <td class="timetable-slot">  <c:forEach var="s" items="${courses}">
+                    <c:if test="${s.date== 'Thứ 5'}">
+                        <p class="mb-0 course-name text-primary">${s.courseName}</p>
+                        <p class="mb-0 course-id">${s.courseId}</p>
+                        <p class="mb-0 course-time text-danger">${s.time}</p>
+                        <p class="mb-3 course-place text-warning border-bottom-primary" >${s.room}</p>
+                    </c:if>
+                </c:forEach></td>
+                <td class="timetable-slot">  <c:forEach var="s" items="${courses}">
+                    <c:if test="${s.date== 'Thứ 6'}">
+                        <p class="mb-0 course-name text-primary">${s.courseName}</p>
+                        <p class="mb-0 course-id">${s.courseId}</p>
+                        <p class="mb-0 course-time text-danger">${s.time}</p>
+                        <p class="mb-3 course-place text-warning border-bottom-primary">${s.room}</p>
+                    </c:if>
+                </c:forEach></td>
+                <td class="timetable-slot">  <c:forEach var="s" items="${courses}">
+                    <c:if test="${s.date== 'Thứ 7'}">
+                        <p class="mb-0 course-name text-primary">${s.courseName}</p>
+                        <p class="mb-0 course-id">${s.courseId}</p>
+                        <p class="mb-0 course-time text-danger">${s.time}</p>
+                        <p class="mb-3 course-place text-warning border-bottom-primary">${s.room}</p>
+                    </c:if>
+                </c:forEach></td>
+                <td class="timetable-slot">  <c:forEach var="s" items="${courses}">
+                    <c:if test="${s.date== 'Chủ nhật'}">
+                        <p class="mb-0 course-name text-primary">${s.courseName}</p>
+                        <p class="mb-0 course-id">${s.courseId}</p>
+                        <p class="mb-0 course-time text-danger">${s.time}</p>
+                        <p class="mb-3 course-place text-warning border-bottom-primary">${s.room}</p>
+                    </c:if>
+                </c:forEach>
 
+                </td>
+
+            </tr>
+
+            <!-- Add more slots as needed -->
+            </tbody>
+        </table>
     </div>
-    <!-- End of Content Wrapper -->
-
-</div>
-<!-- End of Page Wrapper -->
-
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
-            </div>
-        </div>
-    </div>
 </div>
 
-<!-- Bootstrap core JavaScript-->
-<script src="/js/jquery.min.js"></script>
-<script src="/js/bootstrap.bundle.min.js"></script>
-<!-- Core plugin JavaScript-->
-<script src="/js/jquery.easing.min.js"></script>
-<!-- Custom scripts for all pages-->
-<script src="/js/sb-admin-2.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="/js/jquery.min.js"></script>
+            <script src="/js/bootstrap.bundle.min.js"></script>
+            <!-- Core plugin JavaScript-->
+            <script src="/js/jquery.easing.min.js"></script>
+            <!-- Custom scripts for all pages-->
+            <script src="/js/sb-admin-2.min.js"></script>
 
 </body>
 
